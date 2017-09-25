@@ -5,28 +5,6 @@
     <title>HTML5 API</title>
   </head>
   <body>
-  <section id="main">
-    保存するKey：<input id="textkey" type="text" />
-    保存する値：<input id="textdata" type="text" />
-    <button id="button" onclick="setsessionStorage()">保存</button>
-    <button id="button" onclick="removeStorage()">削除</button>
-    <button id="button" onclick="removeallStorage()">全て削除</button>
-    <table border="1">
-      <tr>
-        <th>キー</th><th>値</th>
-      </tr>
-      <tbody id="list">
-      </tbody>
-    </table>
-  </section>
-  <section id="file">
-		<h3>ドラッグアンドドロップで1つから複数のファイルのプロパティを取得します。</h3>
-		<div id="drop" style="width:700px; height:150px; padding:10px; border:3px solid"
-                  ondragover="onDragOver(event)" ></div>
-		<p>ファイルプロパティ表示</p>
-		<div id="disp" ></div>
-  </section>
-
   <script type="text/javascript">
     if (typeof sessionStorage === 'undefined') {
       window.alert("この環境ではWeb Storageが使えません");
@@ -97,6 +75,28 @@
 	   }
     }
   </script>
+
+  <section id="main">
+    保存するKey：<input id="textkey" type="text" />
+    保存する値：<input id="textdata" type="text" />
+    <button id="button" onclick="setsessionStorage()">保存</button>
+    <button id="button" onclick="removeStorage()">削除</button>
+    <button id="button" onclick="removeallStorage()">全て削除</button>
+    <table border="1">
+      <tr>
+        <th>キー</th><th>値</th>
+      </tr>
+      <tbody id="list">
+      </tbody>
+    </table>
+  </section>
+  <section id="file">
+		<h3>ドラッグアンドドロップで1つから複数のファイルのプロパティを取得します。</h3>
+		<div id="drop" style="width:700px; height:150px; padding:10px; border:3px solid"
+                  ondragover="onDragOver(event)" ></div>
+		<p>ファイルプロパティ表示</p>
+		<div id="disp" ></div>
+  </section>
 
   </body>
 </html>

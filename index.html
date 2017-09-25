@@ -19,6 +19,54 @@
       </tbody>
     </table>
   </section>
-
+  <script type="text/javascript">
+    if (typeof sessionStorage === 'undefined') {
+      window.alert("この環境ではWeb Storageが使えません");
+    } else {
+      var storage = sessionStorage;
+      // sessionStorageへの格納
+      function setsessionStorage() {
+        var key = document.getElementById("textkey").value;
+        var value = document.getElementById("textdata").value;
+        // 値の入力チェック
+        if (key && value) {
+          storage.setItem(key, value);
+        }
+        key = "";
+        value = "";
+        viewStorage();
+      }
+      // sessionStorageからのデータの取得と表示
+      function viewStorage() {
+        var list = document.getElementById("list")
+        while (list.firstChild) list.removeChild(list.firstChild);
+        // sessionStorageすべての情報の取得
+        for (var i=0; i < storage.length; i++) {
+          var _key = storage.key(i);
+          // sessionStorageのキーと値を表示
+          var tr = document.createElement("tr");
+          var td1 = document.createElement("td");
+          var td2 = document.createElement("td");
+          list.appendChild(tr);
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          td1.innerHTML = _key;
+          td2.innerHTML = storage.getItem(_key);
+        }
+      }
+      // sessionStorageから削除
+      function removeStorage() {
+        var key = document.getElementById("textkey").value;
+        storage.removeItem(key);
+        key = "";
+        viewStorage();
+      }
+      // sessionStorageからすべて削除
+      function removeallStorage() {
+        storage.clear();
+        viewStorage();
+      }
+    }
+  </script>
   </body>
 </html>

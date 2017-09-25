@@ -34,6 +34,7 @@
         }
         key = "";
         value = "";
+        viewStorage();
       }
       // sessionStorageからのデータの取得と表示
       function viewStorage() {
@@ -58,12 +59,14 @@
         var key = document.getElementById("textkey").value;
         storage.removeItem(key);
         key = "";
+        viewStorage();
       }
       // sessionStorageからすべて削除
       function removeallStorage() {
         storage.clear();
+        viewStorage();
       }
-      // 何はともあれ更新
+      // 初回の表示
       viewStorage();
     }
   </script>
